@@ -2,7 +2,7 @@
 require('localenv')
 const optimist = require("optimist")
 const log = require("book")
-const Debug = require("Debug")
+const Debug = require("debug")
 const CreateServer = require("../server")
 
 const debug = Debug('localtunnel');
