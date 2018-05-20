@@ -7,7 +7,6 @@ const { hri } = require("human-readable-ids")
 const Router = require("koa-router")
 const ClientManager = require("./lib/ClientManager")
 
-console.log('sd')
 const debug = Debug('localtunnel:server');
 
 module.exports = function(opt) {
@@ -29,6 +28,7 @@ module.exports = function(opt) {
     const router = new Router();
 
     router.get('/api/status', async (ctx, next) => {
+        console.log('状态查询')
         const stats = manager.stats;
         ctx.body = {
             tunnels: stats.tunnels,
