@@ -7,6 +7,7 @@ const { hri } = require("human-readable-ids")
 const Router = require("koa-router")
 const ClientManager = require("./lib/ClientManager")
 
+console.log('sd')
 const debug = Debug('localtunnel:server');
 
 module.exports = function(opt) {
