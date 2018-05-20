@@ -1,0 +1,12 @@
+// 将设置放入此文件中以覆盖默认值和用户设置。
+{
+    "files.exclude": {  
+        "bin": true,  
+        "Godeps": true,  
+        "package.sh": true,
+        "README.md": true,
+        ".gitignore": true,
+        ".vscode": true,
+        "go.gopath": true
+    } 
+}
