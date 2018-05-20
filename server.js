@@ -7,7 +7,7 @@ const { hri } = require("human-readable-ids")
 const Router = require("koa-router")
 const ClientManager = require("./lib/ClientManager")
 
-const debug = Debug('localtunnel:server');
+const debug = Debug('Tunnel:server');
 
 module.exports = function(opt) {
     opt = opt || {};
@@ -26,9 +26,8 @@ module.exports = function(opt) {
 
     const app = new Koa();
     const router = new Router();
-
+    // 查询系统状态
     router.get('/api/status', async (ctx, next) => {
-        console.log('状态查询')
         const stats = manager.stats;
         ctx.body = {
             tunnels: stats.tunnels,
@@ -66,7 +65,7 @@ module.exports = function(opt) {
         const isNewClientRequest = ctx.query['new'] !== undefined;
         if (isNewClientRequest) {
             const reqId = hri.random();
-            debug('making new client with id %s', reqId);
+            debug('新客户端连接: %s', reqId);
             const info = await manager.newClient(reqId);
 
             const url = schema + '://' + info.id + '.' + ctx.request.host;
@@ -104,7 +103,7 @@ module.exports = function(opt) {
             return;
         }
 
-        debug('making new client with id %s', reqId);
+        debug('新客户端连接: %s', reqId);
         const info = await manager.newClient(reqId);
 
         const url = schema + '://' + info.id + '.' + ctx.request.host;

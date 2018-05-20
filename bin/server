@@ -5,7 +5,7 @@ const log = require("book")
 const Debug = require("debug")
 const CreateServer = require("../server")
 
-const debug = Debug('localtunnel');
+const debug = Debug('Tunnel');
 
 const argv = optimist
     .usage('Usage: $0 --port [num]')
